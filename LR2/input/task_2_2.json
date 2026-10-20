@@ -1,0 +1,31 @@
+{
+  "title": "Задание 2.2, вариант 7 (a = 2):  x1^2 + x2^2 - a^2 = 0,  x1 - e^(x2) + a = 0",
+  "variables": ["x1", "x2"],
+  "constants": {"a": 2.0},
+
+  "F": [
+    "x1**2 + x2**2 - a**2",
+    "x1 - exp(x2) + a"
+  ],
+  "J": [
+    ["2*x1", "2*x2"],
+    ["1",    "-exp(x2)"]
+  ],
+
+  "PHI": [
+    "sqrt(a**2 - x2**2)",
+    "ln(x1 + a)"
+  ],
+  "phi_comment": "Из 1-го уравнения x1 = sqrt(a^2 - x2^2), из 2-го x2 = ln(x1 + a)",
+
+  "epsilon": 1e-9,
+  "max_iterations": 1000,
+
+  "region": [[1.40, 1.70], [1.15, 1.35]],
+  "initial_guess": [1.5, 1.25],
+
+  "plot_region": [[-3.0, 3.0], [-3.0, 3.0]],
+  "positive_solution_only": true,
+
+  "epsilon_series": [1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7, 1e-8, 1e-9, 1e-10, 1e-11]
+}

@@ -1,0 +1,45 @@
+{
+  "title": "Задание 2.1, вариант 7:  2^x + x^2 - 2 = 0",
+  "variable": "x",
+  "constants": {},
+
+  "f":  "2**x + x**2 - 2",
+  "df": "2**x*ln(2) + 2*x",
+
+  "epsilon": 1e-9,
+  "max_iterations": 1000,
+
+  "search_interval": [-3.0, 3.0],
+  "search_steps": 600,
+  "positive_root_only": true,
+
+  "graphic": {
+    "comment": "Уравнение приведено к виду y1(x) = y2(x) -- корень виден как точка пересечения",
+    "left":  "2**x",
+    "right": "2 - x**2",
+    "labels": ["y = 2^x", "y = 2 - x^2"]
+  },
+
+  "phi_variants": [
+    {
+      "name": "phi(x) = sqrt(2 - 2^x)",
+      "expr": "sqrt(2 - 2**x)",
+      "interval": [0.6, 0.7],
+      "comment": "Выражен x из слагаемого x^2: x = sqrt(2 - 2^x)"
+    },
+    {
+      "name": "phi(x) = x - f(x)/M,  M = 2.6",
+      "expr": "x - (2**x + x**2 - 2)/2.6",
+      "interval": [0.4, 0.9],
+      "comment": "Релаксация: M >= max|f'(x)| на отрезке, поэтому 0 <= phi'(x) < 1"
+    },
+    {
+      "name": "phi(x) = log2(2 - x^2)  (пример неудачного выбора)",
+      "expr": "ln(2 - x**2)/ln(2)",
+      "interval": [0.6, 0.7],
+      "comment": "Здесь |phi'(x)| > 1 -- достаточное условие сходимости нарушено"
+    }
+  ],
+
+  "epsilon_series": [1e-2, 1e-3, 1e-4, 1e-5, 1e-6, 1e-7, 1e-8, 1e-9, 1e-10, 1e-11]
+}
